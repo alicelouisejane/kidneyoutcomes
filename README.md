@@ -49,14 +49,242 @@ kidneyoutcomes::kidneyoutcomesintx(
 ### How to format your input file
 
 Please format your input file that you will load into R to run the
-function over as below. Please retain names of columns and pay attention
-to units. The definitions of each of these variables are alos found
-below.
+function over as below. The definitions of each of these variables are
+also found below. **Please retain names of columns, pay attention to
+units and coding for the sex variable**.
+
+<table style="width:100%; table-layout:fixed; font-size:12px;">
+<tr>
+<th style="width:50%; text-align:center; font-size:14px;">
+Input File Structure
+</th>
+<th style="width:50%; text-align:center; font-size:14px;">
+Definitions of Variables in Input File
+</th>
+</tr>
+<tr>
+<td style="vertical-align: top; width:50%; padding: 10px; font-size:12px;">
+<table style="width:100%; font-size:12px; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="text-align:right;">
+pt_id
+</th>
+<th style="text-align:left;">
+date_trans1
+</th>
+<th style="text-align:left;">
+date_lab
+</th>
+<th style="text-align:right;">
+age_at_lab
+</th>
+<th style="text-align:right;">
+sex
+</th>
+<th style="text-align:right;">
+creatinine_mgdl
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+12345
+</td>
+<td style="text-align:left;">
+2014-07-25
+</td>
+<td style="text-align:left;">
+2014-07-25
+</td>
+<td style="text-align:right;">
+52.60274
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.88
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+12345
+</td>
+<td style="text-align:left;">
+2014-07-25
+</td>
+<td style="text-align:left;">
+2014-07-26
+</td>
+<td style="text-align:right;">
+52.60548
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1.04
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+12345
+</td>
+<td style="text-align:left;">
+2014-07-25
+</td>
+<td style="text-align:left;">
+2014-07-27
+</td>
+<td style="text-align:right;">
+52.60822
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1.30
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+12345
+</td>
+<td style="text-align:left;">
+2014-07-25
+</td>
+<td style="text-align:left;">
+2014-07-28
+</td>
+<td style="text-align:right;">
+52.61096
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1.43
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+12345
+</td>
+<td style="text-align:left;">
+2014-07-25
+</td>
+<td style="text-align:left;">
+2014-07-29
+</td>
+<td style="text-align:right;">
+52.61370
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1.38
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+12345
+</td>
+<td style="text-align:left;">
+2014-07-25
+</td>
+<td style="text-align:left;">
+2014-07-30
+</td>
+<td style="text-align:right;">
+52.61917
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1.33
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td style="vertical-align: top; width:50%; padding: 10px; font-size:12px;">
+<table style="width:100%; font-size:12px; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Variable Name
+</th>
+<th style="text-align:left;">
+Definition
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+pt_id
+</td>
+<td style="text-align:left;">
+Patient ID
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+date_trans1
+</td>
+<td style="text-align:left;">
+Date of first transaplant or date of "baseline" for that individual ie.
+study entry. Format must be YYYY-MM-DD
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+date_lab
+</td>
+<td style="text-align:left;">
+Date of creatinine measurement.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+age_at_lab
+</td>
+<td style="text-align:left;">
+Age at current lab date previously calculated ie. from patients date of
+birth and the date_lab variable
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sex
+</td>
+<td style="text-align:left;">
+Sex coding males =1 and females=2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+creatinine_mgdl
+</td>
+<td style="text-align:left;">
+Value of creatinine result in mg/dl
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</table>
 
 ## Identification of AKI and CKD in the Islet transplanation context
 
-This function calculates the CKD-EPI 2021 derived eGFR per individual
-from the serum creatinine, age at lab, and sex.
+This function calculates the [CKD-EPI
+2021](https://www.kidney.org/ckd-epi-creatinine-equation-2021-0) derived
+eGFR per individual from the serum creatinine, age at lab, and sex.
 
 ### 1.Identification of CKD Episodes
 
@@ -64,7 +292,7 @@ from the serum creatinine, age at lab, and sex.
   criteria](https://www.sciencedirect.com/science/article/pii/S0085253823007664?via%3Dihub)
   as sustained eGFR below threshold for at least **90 days**.
 
-### 2.Definition of AKI
+### 2. Definition of AKI
 
 - AKI is defined based on the [KDIGO
   criteria](https://www.sciencedirect.com/science/article/pii/S0085253823007664?via%3Dihub)
@@ -85,26 +313,26 @@ from the serum creatinine, age at lab, and sex.
   against the previously derived **baseline creatinine** (12-month
   pre-transplant average) as the reference value.
 
-### 3.AKI Event Grouping
+### 3. AKI Event Grouping
 
 - If an AKI event was within **7 days** of another AKI event, this was
   identified as a single (i.e., the same) event.
 
-### 4.AKI Overlapping CKD
+### 4. AKI Overlapping CKD
 
 - AKI events identified in the previous step were not counted as an AKI
   event if they overlapped with a date that an identified the start of
   an episode of CKD.  
 - However, AKI events could occur during an episode of CKD.
 
-### 5.Identification of Acute Kidney Disease (AKD)
+### 5. Identification of Acute Kidney Disease (AKD)
 
 - **Acute Kidney Disease (AKD)** events were identified as AKI events
   lasting **\>7 consecutive days**.  
 - However, the “AKI 1-year count” summary includes any AKD events in
   that total.
 
-### 6.Defining “progression to CKD”
+### 6. Defining “progression to CKD”
 
 - For this context, the identified progression to sustained Stage
   3/3b/4/5 CKD is defined based on the [KDIGO criteria
@@ -146,6 +374,362 @@ from the serum creatinine, age at lab, and sex.
   number of which were \>7 days and the identification of CKD
   progression and timing of progression in days with respect to
   baseline. (eGFR thresholds of 15, 30, 45, and 60)
+
+Definitions of each of the variables for the data frames are below:
+
+<table style="width:100%; table-layout:fixed; font-size:12px;">
+<tr>
+<th style="width:33%; text-align:center; font-size:12px;">
+Definitions of variables in akiyear1 dataframe
+</th>
+<th style="width:33%; text-align:center; font-size:12px;">
+Definitions of variables in akiall dataframe
+</th>
+<th style="width:33%; text-align:center; font-size:12px;">
+Definitions of variables in progression dataframe
+</th>
+</tr>
+<tr>
+<td style="vertical-align: top; width:33%; padding: 10px; font-size:12px;">
+<table style="width:100%; font-size:12px; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Variable Name
+</th>
+<th style="text-align:left;">
+Definition
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+pt_id
+</td>
+<td style="text-align:left;">
+Patient ID
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+akiyear1_sum
+</td>
+<td style="text-align:left;">
+Number of AKI events within 1 year from baseline (includes AKD events)
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td style="vertical-align: top; width:33%; padding: 10px; font-size:12px;">
+<table style="width:100%; font-size:12px; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Variable Name
+</th>
+<th style="text-align:left;">
+Definition
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+pt_id
+</td>
+<td style="text-align:left;">
+Patient ID
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+values
+</td>
+<td style="text-align:left;">
+AKI event (1 is event, if 0 that means there are no AKI events for this
+individual)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+start_tft
+</td>
+<td style="text-align:left;">
+Start of event (days from baseline)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+stop_tft
+</td>
+<td style="text-align:left;">
+End of event (days from baseline)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+diff
+</td>
+<td style="text-align:left;">
+Length of event (days)
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td style="vertical-align: top; width:33%; padding: 10px; font-size:12px;">
+<table style="width:100%; font-size:12px; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Variable Name
+</th>
+<th style="text-align:left;">
+Definition
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+pt_id
+</td>
+<td style="text-align:left;">
+Patient ID
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+maxfollowuptime
+</td>
+<td style="text-align:left;">
+Total follow up time
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+akinhs_total_count
+</td>
+<td style="text-align:left;">
+Number of AKI events counted over all follow up. AKI defined by KDIGO
+and implemented using logic of the NHS algorithm. See above
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+akinhslonger7days_count
+</td>
+<td style="text-align:left;">
+Number of AKI events that were \> 7days ie. would classify as AKD
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+last6months
+</td>
+<td style="text-align:left;">
+Mean eGFR in the last 6 months of follow up
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+last12months
+</td>
+<td style="text-align:left;">
+Mean eGFR in the last 12 months of follow up
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+followupunder45
+</td>
+<td style="text-align:left;">
+Identifier for if mean eGFR in the last 6 months of follow up was under
+45
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+followupunder30
+</td>
+<td style="text-align:left;">
+Identifier for if mean eGFR in the last 6 months of follow up was under
+30
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+followupunder15
+</td>
+<td style="text-align:left;">
+Identifier for if mean eGFR in the last 6 months of follow up was under
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+followupunder60
+</td>
+<td style="text-align:left;">
+Identifier for if mean eGFR in the last 6 months of follow up was under
+60
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sustained90day_30
+</td>
+<td style="text-align:left;">
+Identifier for eGFR dropped below 30 for a 90 day period ie. CKD
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sustained90day_15
+</td>
+<td style="text-align:left;">
+Identifier for eGFR dropped below 15 for a 90 day period ie. CKD
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sustained90day_45
+</td>
+<td style="text-align:left;">
+Identifier for eGFR dropped below 45 for a 90 day period ie. CKD
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sustained90day_60
+</td>
+<td style="text-align:left;">
+Identifier for eGFR dropped below 60 for a 90 day period ie. CKD
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ckd45_progression
+</td>
+<td style="text-align:left;">
+Identifier of having stage 3b progression event defined by
+sustained90day_45 = 1 and followupunder45=1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ckd30_progression
+</td>
+<td style="text-align:left;">
+Identifier of having stage 4 progression event defined by
+sustained90day_30 = 1 and followupunder30=1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ckd15_progression
+</td>
+<td style="text-align:left;">
+Identifier of having stage 5 (ESKD) progression event defined by
+sustained90day_15 = 1 and followupunder15=1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ckd60_progression
+</td>
+<td style="text-align:left;">
+Identifier of having stage 3 progression event defined by
+sustained90day_60 = 1 and followupunder60=1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+persontimedays_45
+</td>
+<td style="text-align:left;">
+Time in days to first stage 3b progression event with respect to some
+baseline (ie. first transplant). If 0 this value is given the value of
+the patients follow up time
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+persontimedays_30
+</td>
+<td style="text-align:left;">
+Time in days to first stage 4 progression event with respect to some
+baseline (ie. first transplant). If 0 this value is given the value of
+the patients follow up time
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+persontimedays_15
+</td>
+<td style="text-align:left;">
+Time in days to first stage 5 (ESKD) progression event with respect to
+some baseline (ie. first transplant). If 0 this value is given the value
+of the patients follow up time
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+persontimedays_60
+</td>
+<td style="text-align:left;">
+Time in days to first stage 3 progression event with respect to some
+baseline (ie. first transplant). If 0 this value is given the value of
+the patients follow up time
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+persontimedays_30_notadjusted
+</td>
+<td style="text-align:left;">
+Time in days to first sustained over 90 days event (egfr\<30) without
+the additional criteria of a last 6 month mean egfr below threshold.
+Time is with respect to some baseline (ie. first transplant)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+persontimedays_60_notadjusted
+</td>
+<td style="text-align:left;">
+Time in days to first sustained over 90 days event (egfr\<60) without
+the additional criteria of a last 6 month mean egfr below threshold.
+Time is with respect to some baseline (ie. first transplant)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+persontimedays_15_notadjusted
+</td>
+<td style="text-align:left;">
+Time in days to first sustained over 90 days event (egfr\<15) without
+the additional criteria of a last 6 month mean egfr below threshold.
+Time is with respect to some baseline (ie. first transplant)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+persontimedays_45_notadjusted
+</td>
+<td style="text-align:left;">
+Time in days to first sustained over 90 days event (egfr\<45) without
+the additional criteria of a last 6 month mean egfr below threshold.
+Time is with respect to some baseline (ie. first transplant)
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</table>
 
 2.  Summary table in a word document for serum creatinine measurement
     rates and frequencies called
