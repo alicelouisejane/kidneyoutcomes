@@ -338,7 +338,7 @@ eGFR per individual from the serum creatinine, age at lab, and sex.
   3/3b/4/5 CKD is defined based on the [KDIGO criteria
   (2024)](https://www.sciencedirect.com/science/article/pii/S0085253823007664?via%3Dihub)
   with an additional criterion: having a sustained eGFR below threshold
-  for at least 90 days, **and an average eGFR in the last 12 months of
+  for at least 90 days, **and an average eGFR in the last 6 months of
   follow-up below such thresholds**.
 
 - The thresholds as defined by
@@ -350,7 +350,7 @@ eGFR per individual from the serum creatinine, age at lab, and sex.
   - **Stage 4**: \<30 ml/min/1.73m<sup>2</sup>
   - **Stage 5**: \<15 ml/min/1.73m<sup>2</sup>
 
-- The additional criterion of an average eGFR in the last 12 months of
+- The additional criterion of an average eGFR in the last 6 months of
   follow-up below such thresholds is to ensure our definition captured
   likely **irreversible CKD** stages within the islet transplant
   setting, in which kidney function can be very dynamic due to
